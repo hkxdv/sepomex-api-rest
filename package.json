@@ -1,0 +1,32 @@
+{
+  "name": "sepomex-api-rest",
+  "version": "1.0.0",
+  "description": "API REST para la base de datos de códigos postales de México (SEPOMEX)",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env --loader ./loader.js app.js",
+    "dev": "node --env-file=.env --watch --loader ./loader.js app.js",
+    "dev:watch": "nodemon --env-file=.env --loader ./loader.js app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sepomex",
+    "api",
+    "rest",
+    "mexico",
+    "postal-codes"
+  ],
+  "author": "hk4u-dxv",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "8.11.3",
+    "cors": "2.8.5",
+    "express": "4.18.2",
+    "express-validator": "7.0.1",
+    "morgan": "1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "3.0.2"
+  }
+}
