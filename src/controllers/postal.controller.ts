@@ -5,8 +5,8 @@
  */
 
 import { Request, Response } from "express";
-import { pool } from "@config/database";
-import { PostalController, ApiResponse } from "@types";
+import { pool } from "../config/database.js";
+import { PostalController, ApiResponse } from "../types/index.js";
 
 /**
  * Busca asentamientos por nombre

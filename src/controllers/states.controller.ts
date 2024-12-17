@@ -5,8 +5,8 @@
  */
 
 import { Request, Response } from "express";
-import { pool } from "@config/database";
-import { StateController, ApiResponse } from "@types";
+import { pool } from "../config/database.js";
+import { StateController, ApiResponse } from "../types/index.js";
 
 /**
  * Obtiene todos los estados ordenados alfabéticamente

@@ -5,8 +5,8 @@
  */
 
 import { Request, Response } from "express";
-import { pool } from "@config/database";
-import { CitiesController, ApiResponse } from "@types";
+import { pool } from "../config/database.js";
+import { CitiesController, ApiResponse } from "../types/index.js";
 
 /**
  * Obtiene todas las ciudades con su información de estado
