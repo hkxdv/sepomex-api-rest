@@ -3,6 +3,10 @@
  * descripción: configuración de variables de entorno para el proyecto
  */
 
+import dotenv from "dotenv";
+
+dotenv.config();
+
 // Server
 export const PORT: string | number = process.env.PORT || 3000;
 export const NODE_ENV: string = process.env.NODE_ENV || "development";
