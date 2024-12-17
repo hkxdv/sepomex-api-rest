@@ -4,8 +4,8 @@
  */
 
 import { Router } from "express";
-import * as postalController from "@controllers/postal.controller";
-import { PostalController } from "@types";
+import * as postalController from "../controllers/postal.controller.js";
+import { PostalController } from "../types/index.js";
 
 const router: Router = Router();
 
