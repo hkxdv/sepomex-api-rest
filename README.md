@@ -1,14 +1,12 @@
 # SEPOMEX API REST
 
-API REST desarrollada en Node.js y Express para consultar la base de datos de códigos postales de México (SEPOMEX).
+API REST desarrollada con Bun y Express para consultar la base de datos de códigos postales de México (SEPOMEX).
 
 <div align="center">
-
-  <img src="https://img.shields.io/badge/-Node.js-000000?style=for-the-badge&logo=node.js&labelColor=282c34" style="border-radius: 3px;" />
+  <img src="https://img.shields.io/badge/-Bun-000000?style=for-the-badge&logo=bun&labelColor=282c34" style="border-radius: 3px;" />
   <img src="https://img.shields.io/badge/-Express-000000?style=for-the-badge&logo=express&labelColor=282c34" style="border-radius: 3px;" />
+  <img src="https://img.shields.io/badge/-Biome-000000?style=for-the-badge&logo=biome&labelColor=282c34" style="border-radius: 3px;" />
   <img src="https://img.shields.io/badge/-Postman-000000?style=for-the-badge&logo=postman&labelColor=282c34" style="border-radius: 3px;" />
-  <img src="https://img.shields.io/badge/-pnpm-000000?style=for-the-badge&logo=pnpm&labelColor=282c34" style="border-radius: 3px;" />
-
 </div>
 
 ## Características
@@ -37,11 +35,11 @@ cd sepomex-api-rest
 2. **Instalar dependencias**
 
 ```bash
-pnpm install
+bun i
 ```
 
 > [!NOTE]  
-> Se recomienda usar pnpm para una instalación más rápida y eficiente.
+> Se requiere tener Bun instalado. Visita bun.sh para instrucciones de instalación.
 
 3. **Configurar variables de entorno**
 
@@ -55,7 +53,7 @@ cp .env.example .env
 4. **Iniciar el servidor**
 
 ```bash
-pnpm run dev     # Desarrollo con hot-reload
+bun dev
 ```
 
 ## Endpoints
@@ -82,15 +80,14 @@ sepomex-api-rest/
 │   ├── controllers/
 │   ├── routes/
 │   ├── middleware/
-│   └── utils/
-├── .env
+│   └── app.ts
+├── .env.example
 ├── .gitignore
-├── app.js
-├── loader.js
+├── biome.json
+├── bun.lock
 ├── package.json
-├── pnpm-lock.yaml
 ├── README.md
-└── SEPOMEX API REST.postman_collection.json
+└── SEPOMEX API.postman_collection.json
 ```
 
 ## Docs
