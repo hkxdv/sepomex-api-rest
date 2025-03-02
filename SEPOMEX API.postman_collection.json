@@ -18,16 +18,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/postal/search?q=centro",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"postal",
-								"search"
-							],
+							"path": ["api", "v1", "postal", "search"],
 							"query": [
 								{
 									"key": "q",
@@ -46,17 +39,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/postal/codigo/29000",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"postal",
-								"codigo",
-								"29000"
-							]
+							"path": ["api", "v1", "postal", "codigo", "29000"]
 						}
 					},
 					"response": []
@@ -69,17 +54,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/postal/estado/07",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"postal",
-								"estado",
-								"07"
-							]
+							"path": ["api", "v1", "postal", "estado", "07"]
 						}
 					},
 					"response": []
@@ -92,18 +69,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/postal/municipio/07/001",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"postal",
-								"municipio",
-								"07",
-								"001"
-							]
+							"path": ["api", "v1", "postal", "municipio", "07", "001"]
 						}
 					},
 					"response": []
@@ -116,18 +84,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/postal/ciudad/09/01",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"postal",
-								"ciudad",
-								"09",
-								"01"
-							]
+							"path": ["api", "v1", "postal", "ciudad", "09", "01"]
 						}
 					},
 					"response": []
@@ -145,15 +104,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/states",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"states"
-							]
+							"path": ["api", "v1", "states"]
 						}
 					},
 					"response": []
@@ -166,16 +119,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/states/09",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"states",
-								"09"
-							]
+							"path": ["api", "v1", "states", "09"]
 						}
 					},
 					"response": []
@@ -188,17 +134,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/states/07/cities",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"states",
-								"07",
-								"cities"
-							]
+							"path": ["api", "v1", "states", "07", "cities"]
 						}
 					},
 					"response": []
@@ -211,17 +149,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/states/07/municipios",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"states",
-								"07",
-								"municipios"
-							]
+							"path": ["api", "v1", "states", "07", "municipios"]
 						}
 					},
 					"response": []
@@ -234,17 +164,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/states/07/asentamientos",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"states",
-								"07",
-								"asentamientos"
-							]
+							"path": ["api", "v1", "states", "07", "asentamientos"]
 						}
 					},
 					"response": []
@@ -262,15 +184,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/cities",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"cities"
-							]
+							"path": ["api", "v1", "cities"]
 						}
 					},
 					"response": []
@@ -283,17 +199,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/cities/07/01",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"cities",
-								"07",
-								"01"
-							]
+							"path": ["api", "v1", "cities", "07", "01"]
 						}
 					},
 					"response": []
@@ -306,18 +214,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/cities/07/01/colonias",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"cities",
-								"07",
-								"01",
-								"colonias"
-							]
+							"path": ["api", "v1", "cities", "07", "01", "colonias"]
 						}
 					},
 					"response": []
@@ -330,18 +229,9 @@
 						"url": {
 							"raw": "http://localhost:3000/api/v1/cities/07/01/codigos",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"cities",
-								"07",
-								"01",
-								"codigos"
-							]
+							"path": ["api", "v1", "cities", "07", "01", "codigos"]
 						}
 					},
 					"response": []
