@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from "express";
+import type { NextFunction, Request, Response } from "express";
 
 interface ErrorWithStatus extends Error {
-  status?: number;
+	status?: number;
 }
 
 /**
@@ -11,16 +11,16 @@ interface ErrorWithStatus extends Error {
  * @param next Función Next de Express
  */
 export const notFoundHandler = (
-  req: Request,
-  res: Response,
-  next: NextFunction
+	req: Request,
+	res: Response,
+	next: NextFunction,
 ) => {
-  res.status(404).json({
-    status: "error",
-    code: 404,
-    message: "Ruta no encontrada",
-    path: req.originalUrl,
-  });
+	res.status(404).json({
+		status: "error",
+		code: 404,
+		message: "Ruta no encontrada",
+		path: req.originalUrl,
+	});
 };
 
 /**
@@ -31,18 +31,18 @@ export const notFoundHandler = (
  * @param next Función Next de Express
  */
 export const errorHandler = (
-  err: ErrorWithStatus,
-  req: Request,
-  res: Response,
-  next: NextFunction
+	err: ErrorWithStatus,
+	req: Request,
+	res: Response,
+	next: NextFunction,
 ) => {
-  console.error(err);
+	console.error(err);
 
-  res.status(err.status || 500).json({
-    status: "error",
-    code: err.status || 500,
-    message: err.message || "Error interno del servidor",
-    path: req.originalUrl,
-    timestamp: new Date().toISOString(),
-  });
+	res.status(err.status || 500).json({
+		status: "error",
+		code: err.status || 500,
+		message: err.message || "Error interno del servidor",
+		path: req.originalUrl,
+		timestamp: new Date().toISOString(),
+	});
 };

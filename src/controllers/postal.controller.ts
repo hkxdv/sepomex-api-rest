@@ -4,9 +4,9 @@
  * @module PostalController
  */
 
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { pool } from "../config/database.js";
-import { PostalController, ApiResponse } from "../types/index.js";
+import type { ApiResponse, PostalController } from "../types/index.js";
 
 /**
  * Busca asentamientos por nombre
@@ -23,13 +23,18 @@ import { PostalController, ApiResponse } from "../types/index.js";
  * - error?: mensaje de error si ocurre
  */
 export const searchByName = async (
-  req: Request<{}, {}, {}, PostalController["SearchQuery"]>,
-  res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>
+	req: Request<
+		Record<string, never>,
+		Record<string, never>,
+		Record<string, never>,
+		PostalController["SearchQuery"]
+	>,
+	res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>,
 ): Promise<void> => {
-  try {
-    const { query } = req.query;
-    // Consulta SQL con JOINS para obtener información relacionada
-    const queryText = `
+	try {
+		const { q } = req.query;
+		// Consulta SQL con JOINS para obtener información relacionada
+		const queryText = `
       SELECT cp.*, e.nombre_estado, m.nombre_municipio, c.nombre_ciudad
       FROM codigos_postales cp
       LEFT JOIN estados e ON cp.codigo_estado = e.codigo_estado
@@ -39,23 +44,23 @@ export const searchByName = async (
         AND cp.codigo_estado = c.codigo_estado
       WHERE cp.nombre_asentamiento ILIKE $1`;
 
-    const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
-      queryText,
-      [`%${query}%`] // Búsqueda parcial case-insensitive
-    );
+		const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
+			queryText,
+			[`%${q}%`], // Búsqueda parcial case-insensitive
+		);
 
-    res.json({
-      success: true,
-      message: "Búsqueda realizada con éxito",
-      data: rows,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error en la búsqueda",
-      error: error instanceof Error ? error.message : "Error desconocido",
-    });
-  }
+		res.json({
+			success: true,
+			message: "Búsqueda realizada con éxito",
+			data: rows,
+		});
+	} catch (error) {
+		res.status(500).json({
+			success: false,
+			message: "Error en la búsqueda",
+			error: error instanceof Error ? error.message : "Error desconocido",
+		});
+	}
 };
 
 /**
@@ -71,13 +76,13 @@ export const searchByName = async (
  * @returns {Promise<void>} JSON con información completa del código postal
  */
 export const getByPostalCode = async (
-  req: Request<PostalController["PostalParams"]>,
-  res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>
+	req: Request<PostalController["PostalParams"]>,
+	res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>,
 ): Promise<void> => {
-  try {
-    const { codigo } = req.params;
-    // Consulta SQL con múltiples JOINS para obtener información completa
-    const queryText = `
+	try {
+		const { codigo } = req.params;
+		// Consulta SQL con múltiples JOINS para obtener información completa
+		const queryText = `
       SELECT cp.*, e.nombre_estado, m.nombre_municipio, c.nombre_ciudad, 
              t.nombre_tipo_asentamiento, z.tipo_zona
       FROM codigos_postales cp
@@ -90,22 +95,22 @@ export const getByPostalCode = async (
       LEFT JOIN zonas z ON cp.id_zona = z.id_zona
       WHERE cp.codigo_postal = $1`;
 
-    const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
-      queryText,
-      [codigo]
-    );
-    res.json({
-      success: true,
-      message: "Código postal encontrado",
-      data: rows,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error al buscar código postal",
-      error: error instanceof Error ? error.message : "Error desconocido",
-    });
-  }
+		const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
+			queryText,
+			[codigo],
+		);
+		res.json({
+			success: true,
+			message: "Código postal encontrado",
+			data: rows,
+		});
+	} catch (error) {
+		res.status(500).json({
+			success: false,
+			message: "Error al buscar código postal",
+			error: error instanceof Error ? error.message : "Error desconocido",
+		});
+	}
 };
 
 /**
@@ -120,13 +125,13 @@ export const getByPostalCode = async (
  * @returns {Promise<void>} JSON con códigos postales del estado
  */
 export const getByState = async (
-  req: Request<Pick<PostalController["LocationParams"], "id">>,
-  res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>
+	req: Request<Pick<PostalController["LocationParams"], "id">>,
+	res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>,
 ): Promise<void> => {
-  try {
-    const { id } = req.params;
-    // Consulta filtrada por estado
-    const queryText = `
+	try {
+		const { id } = req.params;
+		// Consulta filtrada por estado
+		const queryText = `
       SELECT cp.*, e.nombre_estado, m.nombre_municipio, c.nombre_ciudad
       FROM codigos_postales cp
       LEFT JOIN estados e ON cp.codigo_estado = e.codigo_estado
@@ -136,22 +141,22 @@ export const getByState = async (
         AND cp.codigo_estado = c.codigo_estado
       WHERE cp.codigo_estado = $1`;
 
-    const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
-      queryText,
-      [id]
-    );
-    res.json({
-      success: true,
-      message: "Códigos postales del estado encontrados",
-      data: rows,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error al buscar códigos postales del estado",
-      error: error instanceof Error ? error.message : "Error desconocido",
-    });
-  }
+		const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
+			queryText,
+			[id],
+		);
+		res.json({
+			success: true,
+			message: "Códigos postales del estado encontrados",
+			data: rows,
+		});
+	} catch (error) {
+		res.status(500).json({
+			success: false,
+			message: "Error al buscar códigos postales del estado",
+			error: error instanceof Error ? error.message : "Error desconocido",
+		});
+	}
 };
 
 /**
@@ -167,15 +172,15 @@ export const getByState = async (
  * @returns {Promise<void>} JSON con códigos postales del municipio
  */
 export const getByMunicipio = async (
-  req: Request<
-    Pick<PostalController["LocationParams"], "estado" | "municipio">
-  >,
-  res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>
+	req: Request<
+		Pick<PostalController["LocationParams"], "estado" | "municipio">
+	>,
+	res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>,
 ): Promise<void> => {
-  try {
-    const { estado, municipio } = req.params;
-    // Consulta filtrada por estado y municipio
-    const queryText = `
+	try {
+		const { estado, municipio } = req.params;
+		// Consulta filtrada por estado y municipio
+		const queryText = `
       SELECT cp.*, e.nombre_estado, m.nombre_municipio, c.nombre_ciudad
       FROM codigos_postales cp
       LEFT JOIN estados e ON cp.codigo_estado = e.codigo_estado
@@ -185,22 +190,22 @@ export const getByMunicipio = async (
         AND cp.codigo_estado = c.codigo_estado
       WHERE cp.codigo_estado = $1 AND cp.codigo_municipio = $2`;
 
-    const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
-      queryText,
-      [estado, municipio]
-    );
-    res.json({
-      success: true,
-      message: "Códigos postales del municipio encontrados",
-      data: rows,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error al buscar códigos postales del municipio",
-      error: error instanceof Error ? error.message : "Error desconocido",
-    });
-  }
+		const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
+			queryText,
+			[estado, municipio],
+		);
+		res.json({
+			success: true,
+			message: "Códigos postales del municipio encontrados",
+			data: rows,
+		});
+	} catch (error) {
+		res.status(500).json({
+			success: false,
+			message: "Error al buscar códigos postales del municipio",
+			error: error instanceof Error ? error.message : "Error desconocido",
+		});
+	}
 };
 
 /**
@@ -216,13 +221,13 @@ export const getByMunicipio = async (
  * @returns {Promise<void>} JSON con códigos postales de la ciudad
  */
 export const getByCiudad = async (
-  req: Request<Pick<PostalController["LocationParams"], "estado" | "ciudad">>,
-  res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>
+	req: Request<Pick<PostalController["LocationParams"], "estado" | "ciudad">>,
+	res: Response<ApiResponse<PostalController["PostalCodeRecord"][]>>,
 ): Promise<void> => {
-  try {
-    const { estado, ciudad } = req.params;
-    // Consulta filtrada por estado y ciudad
-    const queryText = `
+	try {
+		const { estado, ciudad } = req.params;
+		// Consulta filtrada por estado y ciudad
+		const queryText = `
       SELECT cp.*, e.nombre_estado, m.nombre_municipio, c.nombre_ciudad
       FROM codigos_postales cp
       LEFT JOIN estados e ON cp.codigo_estado = e.codigo_estado
@@ -232,20 +237,20 @@ export const getByCiudad = async (
         AND cp.codigo_estado = c.codigo_estado
       WHERE cp.codigo_estado = $1 AND cp.codigo_ciudad = $2`;
 
-    const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
-      queryText,
-      [estado, ciudad]
-    );
-    res.json({
-      success: true,
-      message: "Códigos postales de la ciudad encontrados",
-      data: rows,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error al buscar códigos postales de la ciudad",
-      error: error instanceof Error ? error.message : "Error desconocido",
-    });
-  }
+		const { rows } = await pool.query<PostalController["PostalCodeRecord"]>(
+			queryText,
+			[estado, ciudad],
+		);
+		res.json({
+			success: true,
+			message: "Códigos postales de la ciudad encontrados",
+			data: rows,
+		});
+	} catch (error) {
+		res.status(500).json({
+			success: false,
+			message: "Error al buscar códigos postales de la ciudad",
+			error: error instanceof Error ? error.message : "Error desconocido",
+		});
+	}
 };
