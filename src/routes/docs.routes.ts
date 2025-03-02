@@ -1,8 +1,11 @@
 import { Router } from "express";
 import { getApiDocs } from "../controllers/docs.controller.js";
 
-const router = Router();
+const router: Router = Router();
 
-router.get("/docs", getApiDocs);
+/**
+ * Renderiza la documentación en HTML
+ */
+router.get("/", getApiDocs);
 
 export default router;
