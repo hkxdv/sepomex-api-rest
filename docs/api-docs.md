@@ -1,4 +1,4 @@
-# SEPOMEX API - Documentación Técnica
+# SEPOMEX API REST - Documentación básica
 
 ## Información General
 
@@ -32,7 +32,7 @@ Accept: application/json
 ```json
 {
   "error": "Mensaje descriptivo del error",
-  "details": "Detalles adicionales (opcional)"
+  "details": "Detalles adicionales"
 }
 ```
 
