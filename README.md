@@ -100,17 +100,6 @@ GET /api/v1/postal/estado/07/municipio/101
 
 Consulta el archivo `docs/endpoints.md` para ver todos los endpoints disponibles.
 
-## Características
-
-La API proporciona las siguientes funcionalidades:
-
-1. **Búsqueda de códigos postales**: Obtener información completa a partir de un código postal
-2. **Búsqueda por nombre**: Encontrar asentamientos por nombre o parte del nombre
-3. **Filtrado geográfico**: Filtrar por estado, municipio o ciudad
-4. **Formato unificado**: Respuestas JSON con formato consistente
-5. **Validación**: Verificación de existencia y formato de códigos postales
-6. **Documentación completa**: Endpoints documentados y colección de Postman
-
 > [!WARNING]
 >
 > - Los datos pueden contener errores tipográficos
