@@ -20,30 +20,6 @@ Los datos originales provienen del Servicio Postal Mexicano (SEPOMEX) a través 
 > - Los asentamientos pueden ser: colonias, fraccionamientos, barrios, ejidos, etc.
 > - Se conservan acentos y caracteres especiales en los nombres
 
-## Estructura del Proyecto
-
-```
-sepomex-api-rest/
-├── docs/
-│   ├── endpoints.md
-│   ├── api-docs.md
-│   └── codigos-formato.md
-│
-├── src/
-│   ├── config/
-│   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
-│   └── app.ts
-│
-├── .env.example
-├── .gitignore
-├── biome.json
-├── bun.lock
-├── package.json
-└── SEPOMEX API.postman_collection.json
-```
-
 ## Instalación
 
 ### Requisitos previos
