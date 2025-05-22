@@ -1,13 +1,28 @@
-# SEPOMEX API v1.0.0
+# SEPOMEX API REST - Endpoints
 
-## Colección Postman
+## Colección de Endpoints en Postman
 
-```json
-{
-  "name": "SEPOMEX API",
-  "description": "API REST para consulta de códigos postales de México"
-}
-```
+Para facilitar las pruebas y la integración, proporcionamos una colección completa de Postman con todos los endpoints disponibles.
+
+### Detalles de la Colección
+
+- **Nombre**: SEPOMEX API
+- **Descripción**: API REST para consulta de códigos postales de México
+- **Archivo**: [SEPOMEX API.postman_collection.json](https://github.com/hk4u-dxv/sepomex-api-rest/blob/typescript/SEPOMEX%20API.postman_collection.json)
+
+### Contenido
+
+La colección incluye:
+
+- Todos los Endpoints disponibles para búsqueda de códigos postales, consulta de estados y ciudades
+- Variables de entorno preconfiguradas
+- Ejemplos de respuestas
+
+Para usar la colección:
+
+1. Descargue el archivo JSON
+2. Importe la colección en Postman
+3. Configure la variable de entorno `baseUrl` (por defecto: `http://localhost:3000`)
 
 ## Códigos Postales
 
