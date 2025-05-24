@@ -1,64 +1,59 @@
 {
-	"name": "sepomex-api-rest",
-	"version": "1.0.0",
-	"description": "API REST para la base de datos de códigos postales de México (SEPOMEX)",
-	"main": "dist/app.js",
-	"type": "module",
-	"scripts": {
-		"start": "bun dist/app.js",
-		"dev": "bun --watch src/app.ts",
-		"build": "bun build ./src/app.ts --outfile=dist/app.js && bun run copy-files",
-		"copy-files": "copyfiles -u 1 src/**/*.{json,sql} dist/",
-		"lint": "biome check .",
-		"lint:fix": "biome check --write .",
-		"format": "biome format .",
-		"format:fix": "biome format --write .",
-		"clean": "rimraf dist",
-		"prebuild": "bun run clean",
-		"vercel-build": "bun run build",
-		"prod:build": "NODE_ENV=production bun run build",
-		"prod:start": "NODE_ENV=production bun dist/app.js",
-		"prod:serve": "bun run prod:build && bun run prod:start"
-	},
-	"keywords": [
-		"sepomex",
-		"api",
-		"rest",
-		"mexico",
-		"postal-codes",
-		"códigos-postales"
-	],
-	"author": "hk4u-dxv",
-	"license": "ISC",
-	"dependencies": {
-		"@vercel/postgres": "^0.5.1",
-		"compression": "^1.7.4",
-		"cors": "^2.8.5",
-		"dotenv": "^16.4.7",
-		"ejs": "^3.1.10",
-		"express": "^4.18.2",
-		"express-rate-limit": "^7.5.0",
-		"express-validator": "^7.0.1",
-		"helmet": "^7.1.0",
-		"marked": "^15.0.4",
-		"morgan": "^1.10.0",
-		"pg": "^8.11.3"
-	},
-	"devDependencies": {
-		"@types/compression": "^1.7.5",
-		"@types/cors": "^2.8.17",
-		"@types/ejs": "^3.1.5",
-		"@types/express": "^5.0.0",
-		"@types/marked": "^6.0.0",
-		"@types/morgan": "^1.9.9",
-		"@types/node": "^20.10.0",
-		"@types/pg": "^8.11.0",
-		"@biomejs/biome": "1.9.4",
-		"copyfiles": "^2.4.1",
-		"rimraf": "^5.0.5",
-		"typescript": "^5.3.2"
-	},
-	"engines": {
-		"bun": ">=1.2.0"
-	}
+  "name": "sepomex-api-rest",
+  "version": "1.0.0",
+  "description": "API REST para la base de datos de códigos postales de México (SEPOMEX)",
+  "author": "Gera Schz",
+  "license": "MIT",
+  "main": "dist/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "bun dist/app.js",
+    "dev": "bun --watch src/app.ts",
+    "build": "bun build ./src/app.ts --outfile=dist/app.js && bun run copy-files",
+    "copy-files": "copyfiles -u 1 src/**/*.{json,sql} dist/",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format .",
+    "format:fix": "biome format --write .",
+    "clean": "rimraf dist",
+    "prebuild": "bun run clean"
+  },
+  "keywords": [
+    "sepomex",
+    "api",
+    "rest",
+    "mexico",
+    "postal-codes",
+    "códigos-postales"
+  ],
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "marked": "^15.0.4",
+    "morgan": "^1.10.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.0",
+    "@types/marked": "^6.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.10.0",
+    "@types/pg": "^8.11.0",
+    "@biomejs/biome": "1.9.4",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.2"
+  },
+  "engines": {
+    "bun": ">=1.2.0"
+  }
 }
